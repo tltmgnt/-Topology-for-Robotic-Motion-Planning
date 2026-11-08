@@ -88,3 +88,7 @@ python -m unittest discover -s tests -v
 The 12 tests cover shortest paths against an independent breadth-first search on all 128 obstacle patterns of a 3×3 map with fixed free endpoints, opposite-side signatures and route clearance, narrow passages at different robot radii, segment collisions, blocked goals, expansion limits, signature algebra, input validation, and CLI JSON/SVG exports. CI installs the package and runs tests and the two-route example on Python 3.10, 3.12, and 3.13.
 
 Licensed under Apache 2.0; see [LICENSE](LICENSE).
+
+## ResearchOS / TECT concept integration
+
+The [ResearchOS / Topological Epistemic Control Theory technical concept paper](docs/researchos/TECT_WHITE_PAPER.md) proposes an epistemic control and assurance infrastructure for AI-generated knowledge. Read the [repository integration status](docs/researchos/INTEGRATION.md) and [machine-readable scope](docs/researchos/integration.json) for the boundary between the concept and implemented capabilities. Performance targets are research objectives, not achieved results. This documentation addition does not implement the complete ResearchOS architecture or change operational authority.
