@@ -12,7 +12,11 @@ license = {text = "Apache-2.0"}
 dependencies = []
 
 [project.scripts]
+researchos = "researchos.__main__:main"
 topoplan = "topoplan.__main__:main"
 
 [tool.setuptools.packages.find]
-include = ["topoplan*"]
+include = ["topoplan*", "researchos*"]
+
+[tool.setuptools.package-data]
+researchos = ["*.json"]
