@@ -15,4 +15,25 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: python -m pip install .
       - run: python -m unittest discover -s tests -v
+      - run: python tests/check_benchmark_installed.py
       - run: topoplan examples/obstacle.json --routes 2 --output output/report.json --svg output/routes.svg
+
+  ompl-baselines:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install '.[ompl]'
+      - name: Unit and real PRM RRT RRTstar adapter tests
+        run: python -m unittest discover -s tests -v
+      - name: Installed workflows
+        run: python tests/check_benchmark_installed.py
+      - name: Native synthetic experiment bundle
+        run: |
+          python -m topoplan.benchmark generate --include-ompl --output study.json
+          python -m topoplan.benchmark run study.json --output native-review
+          python -m topoplan.benchmark verify native-review
