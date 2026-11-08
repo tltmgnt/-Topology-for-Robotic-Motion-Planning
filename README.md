@@ -2,6 +2,20 @@
 
 **TopoPlan** is a dependency-free Python toolkit for educational 2D motion planning. It combines collision-checked grid A*, conservative circular-robot clearance, and alternative routes distinguished by topological branch-cut signatures.
 
+## Research benchmark extension
+
+An additive experiment layer now provides independently checked route diversity,
+formal finite-search outcomes, clearance sweeps, continuous RRT, optional real
+OMPL PRM/RRT/RRT* baselines, moving-obstacle planning, prioritized multi-robot
+scheduling and replay-verifiable benchmark bundles. The legacy CLI and Grid API
+below remain unchanged. See [the experiment contracts and research boundaries](docs/MOTION_BENCHMARKS.md).
+
+```sh
+python -m topoplan.benchmark run examples/benchmark.json --output benchmark-review
+python -m topoplan.benchmark verify benchmark-review
+```
+
+
 ## Quick start
 
 Requires Python 3.10 or newer. From the repository root:
@@ -85,7 +99,7 @@ This is an offline planner for static maps, not a robot controller. It does not 
 python -m unittest discover -s tests -v
 ```
 
-The 12 tests cover shortest paths against an independent breadth-first search on all 128 obstacle patterns of a 3×3 map with fixed free endpoints, opposite-side signatures and route clearance, narrow passages at different robot radii, segment collisions, blocked goals, expansion limits, signature algebra, input validation, and CLI JSON/SVG exports. CI installs the package and runs tests and the two-route example on Python 3.10, 3.12, and 3.13.
+The original planner tests cover shortest paths against an independent breadth-first search on all 128 obstacle patterns of a 3×3 map with fixed free endpoints, opposite-side signatures and route clearance, narrow passages at different robot radii, segment collisions, blocked goals, expansion limits, signature algebra, input validation, and CLI JSON/SVG exports. CI installs the package and runs tests and the two-route example on Python 3.10, 3.12, and 3.13.
 
 Licensed under Apache 2.0; see [LICENSE](LICENSE).
 

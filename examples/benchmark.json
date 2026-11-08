@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "experiments": [
+    {
+      "id": "island-0-astar",
+      "kind": "static",
+      "grid": [
+        ".........",
+        ".........",
+        "....#....",
+        "....#....",
+        "....#....",
+        ".........",
+        "........."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        7,
+        3
+      ],
+      "radius": 0,
+      "planner": "astar",
+      "routes": 2,
+      "seed": 7,
+      "iterations": 500,
+      "max_expansions": 10000,
+      "seconds": 0.15
+    },
+    {
+      "id": "island-0-rrt",
+      "kind": "static",
+      "grid": [
+        ".........",
+        ".........",
+        "....#....",
+        "....#....",
+        "....#....",
+        ".........",
+        "........."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        7,
+        3
+      ],
+      "radius": 0,
+      "planner": "rrt",
+      "routes": 2,
+      "seed": 7,
+      "iterations": 500,
+      "max_expansions": 10000,
+      "seconds": 0.15
+    },
+    {
+      "id": "moving-crossing",
+      "kind": "dynamic",
+      "grid": [
+        ".....",
+        ".....",
+        ".....",
+        ".....",
+        "....."
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        4,
+        2
+      ],
+      "radius": 0.2,
+      "horizon": 10,
+      "obstacles": [
+        {
+          "radius": 0.2,
+          "path": [
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "robot-swap",
+      "kind": "multi",
+      "grid": [
+        ".....",
+        ".....",
+        "....."
+      ],
+      "radius": 0.2,
+      "horizon": 12,
+      "robots": [
+        {
+          "id": "a",
+          "start": [
+            0,
+            1
+          ],
+          "goal": [
+            4,
+            1
+          ]
+        },
+        {
+          "id": "b",
+          "start": [
+            4,
+            1
+          ],
+          "goal": [
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}
