@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "topoplan"
+version = "0.1.0"
+description = "Clearance-aware grid motion planning with topological route signatures"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+dependencies = []
+
+[project.scripts]
+topoplan = "topoplan.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["topoplan*"]
