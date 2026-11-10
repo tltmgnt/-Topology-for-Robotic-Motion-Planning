@@ -1,0 +1,30 @@
+{
+  "case_count": 8,
+  "command": "python curriculum/lab.py --verify",
+  "exit_code": 0,
+  "expected_sha256": "a159552e1a93d95a66f2cb5b962e68ea1d7196b35e732b8bc1843cc3e4f7f613",
+  "lab_sha256": "78a82d1013465dd6fd31e0b84ace3892c584cf3004e32c854d9b22b8f09fefe7",
+  "python": "3.12.14",
+  "repository": "tltmgnt/-Topology-for-Robotic-Motion-Planning",
+  "schema_version": 1,
+  "scope": "Local synthetic curriculum validation on the recorded source snapshot; not complete repository CI, learning outcomes, independent scientific reproduction or deployment approval",
+  "source_and_fixture_sha256": {
+    "examples/benchmark.json": "1d8e604cc4ba94fb49ece22764442d07f62e4522b62aedaa70848278a9d6e80c",
+    "examples/disconnected.json": "373bffb7d00f004406d50b7cc6941fe65d8d6d8ec5d2e40a32ce261c985ea179",
+    "examples/obstacle.json": "0058e71619fd6980f3a25541d29932af68d8f6df46efac24694c5e067136e0c9",
+    "topoplan/__init__.py": "ce9bc48a26f07c8cca2bc0e47fda1eb14655f3408ad0e7bd436a57018e601dbc",
+    "topoplan/__main__.py": "43c17f202b6e150f53dc18e9c79c3dadf1cacd8cc7b4b3675e3c63ecb28d6997",
+    "topoplan/audit.py": "4dd46c14dce98713a7304a9b5e348e2337e57b9a1358a7253dfbdcb3c48628b3",
+    "topoplan/baselines.py": "00dc125cad1765ee13d30b49ec691561ad9384aaf6097913f173abd77776905c",
+    "topoplan/benchmark.py": "97287271ce1e8ef7727429bd907dcac20e91f98e8d0c567334e2ef178686e67a",
+    "topoplan/continuous.py": "cae5c66579de18904a69405faddfc17bd03d9927f39af1d232dbe51cec25a4fb",
+    "topoplan/core.py": "9c7d9b45991226fafdcd4c791e789a214020887444c2782e52398ad93140e396",
+    "topoplan/evidence.py": "9bc06542a1c55ecb9cba187f6c6750586e5d2d19e574291b03299bb96139f2b3",
+    "topoplan/experiments.py": "776bfc2c7201f233163abaa80f740f14ddda4f4facecd615d126e9813db6c878",
+    "topoplan/geometry.py": "8406e3e124545bc57a32e0c8ca42cadf1e84815ec594bb06f2cceaf351624373",
+    "topoplan/ompl_worker.py": "ba1b3c1cd53a3aceea909600d6bc76ddfcae3625c5a5248317c3c702589e286c",
+    "topoplan/temporal.py": "b360e68c124892103e8c7615709c690f95e26867f2400eb50e10a9252ffa8449"
+  },
+  "source_base_commit": "161515a1edc08e8e9470ec6195b0156958f7a320",
+  "wrong_expectation_exit_code": 1
+}
