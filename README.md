@@ -1,5 +1,14 @@
 # Topology for Robotic Motion Planning
 
+<!-- research-workbench:start -->
+## Research workbench
+
+[Open this repository's private workbench](https://tltmgnt-topology-for-robotic-motion-planning.troturn31.chatgpt.site) · [All repository workbenches](https://tltmgnt-research-workbenches.troturn31.chatgpt.site)
+
+The hosted interface requires ChatGPT sign-in and access to the private Site. It supports browser-local research records, evidence fingerprints and workspace export. It is a prototype: no live AI model or repository backend is connected, and it does not establish external validation.
+<!-- research-workbench:end -->
+
+
 **TopoPlan** is a dependency-free Python toolkit for educational 2D motion planning. It combines collision-checked grid A*, conservative circular-robot clearance, and alternative routes distinguished by topological branch-cut signatures.
 
 ## Research benchmark extension
