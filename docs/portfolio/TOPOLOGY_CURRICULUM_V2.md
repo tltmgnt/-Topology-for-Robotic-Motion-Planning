@@ -1,6 +1,6 @@
 # Topology compatibility and curriculum v2 — -Topology-for-Robotic-Motion-Planning
 
-Version 2 adapts the explicit-molecular-graph teaching pattern to this repository's actual role. This is documentation and a learning/decision framework; it introduces no mathematical engine, runtime dependency or operational permission.
+The verified edition of version 2 adapts the explicit-molecular-graph teaching pattern to this repository's actual role. This edition adds executable learning checks and reviewed answer keys. It does not introduce a new topology engine or grant operational permission.
 
 ## Repository decision
 
@@ -40,47 +40,56 @@ Prerequisites: basic programming, sets, functions and graph vocabulary. Work in 
 | 5. Comparison | Justify mathematical necessity and cost. | Complete the six-criterion card for the existing approach and one proposed alternative; record unknowns honestly. | Evidence-backed recommendation with baseline and explicit veto conditions. |
 | 6. Reproduction | Communicate the bounded result. | Reproduce the capstone using existing offline fixtures and record software version, inputs, outputs and limitations. | Reviewable notebook or report distinguishing computation, replay, independent evaluation and authorization. |
 
-## Source-linked reading laboratory
+## Worked reasoning and source explanation
 
-The table is a guided selection of source lines, not an assertion that the whole repository is covered. Line numbers refer to the inspected source blob `2af9a492b4c21867f107faa2b748d07f77299222` in [topoplan/core.py](../../topoplan/core.py). Recheck anchors after source changes.
+In an obstacle-free grid the Manhattan lower bound is |4−0|+|3−0|=7 and A* attains it. The vertical-obstacle fixture forces length-ten detours on opposite sides, recorded with different branch-cut signatures. The lab separately checks every segment against inflated obstacles. expansion_limit reports a bounded search budget, not mathematical unreachability; signature alternatives remain bounded and are not all homotopy classes.
 
-| Line | Statement | Learning check |
+Read the [inspected source](https://github.com/tltmgnt/-Topology-for-Robotic-Motion-Planning/blob/161515a1edc08e8e9470ec6195b0156958f7a320/topoplan/core.py) alongside the [executable answer key](../../curriculum/lab.py). The source link is pinned to the inspected revision; the lab and any explicitly described fix are in this change.
+
+## Run the worked laboratory
+
+From the repository root, with Python 3.12 (the recorded local version is 3.12.14):
+
+```sh
+python curriculum/lab.py --verify
+```
+
+The lab checks **8 explicit expectations** against existing repository functions. It prints a JSON case report and exits nonzero on a wrong result. `--verify` additionally compares the entire case report with [expected.json](../../curriculum/expected.json). Read the input and predict each result before opening the answer key. No API account, credentials, model download, trading action or equipment connection is needed.
+
+| Checkpoint | Expected answer |
+| --- | --- |
+| open-grid Manhattan optimum | `7` |
+| two bounded signature alternatives | `2` |
+| routes have different signatures | `true` |
+| both detours are length ten | `[10, 10]` |
+| every returned segment clears inflated obstacles | `true` |
+| small search budget is not unreachability | `"expansion_limit"` |
+| zero-length self route | `0` |
+| occupied start rejected | `"ValueError"` |
+
+The comparisons above encode independently specified small examples and contract expectations; a passing answer key is not evidence of complete domain correctness. The original functions and their existing test suites remain the authority for broader supported contracts.
+
+## Learner tasks and assessment rubric
+
+1. Before running the lab, predict every expected answer and derive one numeric result or state transition by hand.
+2. Explain the worked reasoning above using the referenced source, including the rejected or counterexample case.
+3. Add a new valid example and a nearby failing example. Explain which assumption changes, then compare against the existing implementation. For concept/static labs, keep the result explicitly at that level.
+4. Complete the scorecard for a proposed extension and a simpler baseline. Leave measurements unknown until collected; a task that the baseline already solves is not evidence for additional topology.
+
+| Competency | Points | Full-credit evidence |
 | --- | --- | --- |
-| [7](../../topoplan/core.py#L7) | `class Grid:` | State the input/output contract and trace one normal and one failing case. |
-| [9](../../topoplan/core.py#L9) | `def __init__(self, rows, radius=0.0):` | State the input/output contract and trace one normal and one failing case. |
-| [11](../../topoplan/core.py#L11) | `raise ValueError('grid must contain nonempty string rows')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [14](../../topoplan/core.py#L14) | `raise ValueError('Grid must be rectangular, contain only . and #, and have at most 10000 cells')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [16](../../topoplan/core.py#L16) | `raise ValueError('radius must be a finite nonnegative number')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [19](../../topoplan/core.py#L19) | `if len(self.blocked)>2000: raise ValueError('At most 2000 obstacle cells are supported')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [32](../../topoplan/core.py#L32) | `def point(self, cell):` | State the input/output contract and trace one normal and one failing case. |
-| [34](../../topoplan/core.py#L34) | `raise ValueError('Start and goal must be integer [column, row] pairs')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [35](../../topoplan/core.py#L35) | `return tuple(cell)` | Predict the returned value and distinguish a computed result from authorization. |
-| [37](../../topoplan/core.py#L37) | `def valid(self, cell):` | State the input/output contract and trace one normal and one failing case. |
-| [39](../../topoplan/core.py#L39) | `if not (r<x<self.width-r and r<y<self.height-r): return False` | Predict the returned value and distinguish a computed result from authorization. |
-| [40](../../topoplan/core.py#L40) | `return not any(a<=x<=c and b<=y<=d for a,b,c,d in self.boxes)` | Predict the returned value and distinguish a computed result from authorization. |
-| [42](../../topoplan/core.py#L42) | `def clear_segment(self, a, b):` | State the input/output contract and trace one normal and one failing case. |
-| [45](../../topoplan/core.py#L45) | `if not self.valid(a) or not self.valid(b): return False` | Predict the returned value and distinguish a computed result from authorization. |
-| [55](../../topoplan/core.py#L55) | `if low<=high: return False` | Predict the returned value and distinguish a computed result from authorization. |
-| [56](../../topoplan/core.py#L56) | `return True` | Predict the returned value and distinguish a computed result from authorization. |
-| [58](../../topoplan/core.py#L58) | `def neighbors(self, cell):` | State the input/output contract and trace one normal and one failing case. |
-| [63](../../topoplan/core.py#L63) | `def crossing(self, a, b):` | State the input/output contract and trace one normal and one failing case. |
-| [73](../../topoplan/core.py#L73) | `return tuple(values)` | Predict the returned value and distinguish a computed result from authorization. |
-| [75](../../topoplan/core.py#L75) | `def signature(self, path):` | State the input/output contract and trace one normal and one failing case. |
-| [79](../../topoplan/core.py#L79) | `return tuple(result)` | Predict the returned value and distinguish a computed result from authorization. |
-| [81](../../topoplan/core.py#L81) | `def plan(self, start, goal, routes=1, max_expansions=100000):` | State the input/output contract and trace one normal and one failing case. |
-| [90](../../topoplan/core.py#L90) | `raise ValueError('Start or goal has insufficient clearance or lies outside the grid')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [91](../../topoplan/core.py#L91) | `if type(routes) is not int or not 1<=routes<=10: raise ValueError('routes must be from 1 to 10')` | Construct the triggering input and explain why rejection preserves the contract. |
-## Assessment and verification
+| Model and contract | 0–3 | Correct objects, relation direction, labels/units, input bounds and missingness. |
+| Derivation and trace | 0–3 | Hand derivation agrees with the specified fixture; source steps explain why. |
+| Counterexample | 0–3 | New failing/boundary case has a justified expected result; rejection is not suppressed. |
+| Scope and necessity | 0–3 | Distinguishes software behavior from validation and compares an explicit simpler alternative. |
 
-A learner must explain the model, trace the capstone, identify a counterexample and state the scope boundary. Assess these four competencies equally; a numerical score cannot compensate for an unsupported scientific or operational claim.
+Completion requires at least 10/12 and no zero in scope/necessity. A runnable answer key alone is not evidence that a learner achieved this competency. No learner-outcome study has been performed.
 
-Relevant existing checks:
+## Verification evidence and maintenance
 
-- [tests/test_experiments.py](../../tests/test_experiments.py)
-- [tests/test_researchos.py](../../tests/test_researchos.py)
-- [tests/test_topoplan.py](../../tests/test_topoplan.py)
+[VALIDATION.json](../../curriculum/VALIDATION.json) records the inspected base revision, local Python version, source/fixture hashes, lab/answer hashes, case count and exit codes. All cases were executed locally. An in-memory copy with a deliberately wrong comparison was also executed and returned nonzero, checking that the grading failure path is active. Those injected failures are harness checks, not scientific adversarial evaluations.
 
-Follow [README](../../README.md) for environment and installed-package instructions. Read scripts before execution; source-reading exercises do not authorize provider calls, model downloads, live orders, hardware actions or messages. Synthetic fixtures establish software behavior only. This documentation change does not report those exercises as already executed.
+The dedicated [curriculum workflow](../../.github/workflows/curriculum.yml) runs the same `--verify` command on relevant pull-request changes. CI status is reported by GitHub; the local record does not assert that remote CI passed. Existing full-suite and installed-package requirements still apply to runtime changes. When source or fixture semantics change, inspect the diff and rederive answers before updating expected.json. Never regenerate expected answers solely to silence a failure. Refresh the local validation record after an actual run; do not rewrite its recorded base revision as if a new run occurred.
 
 ## Interoperability and adoption gate
 

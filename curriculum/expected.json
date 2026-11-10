@@ -1,0 +1,62 @@
+{
+  "case_count": 8,
+  "cases": [
+    {
+      "actual": 7,
+      "case": "open-grid Manhattan optimum",
+      "expected": 7,
+      "passed": true
+    },
+    {
+      "actual": 2,
+      "case": "two bounded signature alternatives",
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "actual": true,
+      "case": "routes have different signatures",
+      "expected": true,
+      "passed": true
+    },
+    {
+      "actual": [
+        10,
+        10
+      ],
+      "case": "both detours are length ten",
+      "expected": [
+        10,
+        10
+      ],
+      "passed": true
+    },
+    {
+      "actual": true,
+      "case": "every returned segment clears inflated obstacles",
+      "expected": true,
+      "passed": true
+    },
+    {
+      "actual": "expansion_limit",
+      "case": "small search budget is not unreachability",
+      "expected": "expansion_limit",
+      "passed": true
+    },
+    {
+      "actual": 0,
+      "case": "zero-length self route",
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "actual": "ValueError",
+      "case": "occupied start rejected",
+      "expected": "ValueError",
+      "passed": true
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Synthetic curriculum checks only",
+  "status": "PASS"
+}
