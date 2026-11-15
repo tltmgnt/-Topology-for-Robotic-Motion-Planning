@@ -14,6 +14,7 @@ dependencies = []
 [project.scripts]
 researchos = "researchos.__main__:main"
 topoplan = "topoplan.__main__:main"
+topoplan-tga = "topoplan.tga:main"
 topoplan-bench = "topoplan.benchmark:main"
 
 [tool.setuptools.packages.find]

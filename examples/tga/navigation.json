@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "authorized": true,
+  "risk": 0.05,
+  "risk_limit": 0.1,
+  "capabilities": {
+    "battery": {"category": "energy", "unit": "Wh", "required": 20, "evidence": [[25, 30]]},
+    "navigation": {"category": "cognitive", "unit": "validated skill indicator", "required": 1, "evidence": [[1, 1]], "depends_on": ["battery"]}
+  },
+  "navigation": {"grid": [".......", "...#...", "...#...", "...#...", "......."], "radius": 0.2, "start": [0, 2], "goal": [6, 2]}
+}
