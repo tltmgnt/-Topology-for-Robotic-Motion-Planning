@@ -129,3 +129,19 @@ See [current implementation and shared-core integration](docs/portfolio/INTEGRAT
 ## Topology compatibility and curriculum
 
 See the [repository-specific v2 curriculum](docs/portfolio/TOPOLOGY_CURRICULUM_V2.md) for topology choices, worked explanations, a graded laboratory and adoption boundaries. Run the offline answer key from this repository root:\n\n```sh\npython curriculum/lab.py --verify\n```\n\n[Expected answers](curriculum/expected.json) · [Recorded local validation](curriculum/VALIDATION.json). The guide states any existing dependency needed for the lab.
+
+## Ω-TGA capability-gap pilot
+
+[Ω-TGA research architecture and implemented contract](docs/OMEGA_TGA.md) adds
+an offline capability/dependency assessment over the existing navigation planner.
+It retains per-category gaps, blocks missing or contradictory evidence, enforces
+declared authorization and risk limits, and compares predicted interventions.
+
+```sh
+python -m topoplan.tga examples/tga/navigation.json
+# Installed equivalent: topoplan-tga examples/tga/navigation.json
+```
+
+An `ELIGIBLE_OFFLINE` result is a synthetic model result, never permission to
+execute hardware or a ResearchOS/TECT `ASSURED` claim. OPTIMUS Ω is a proposed
+application identity, with no claimed Tesla integration or endorsement.
